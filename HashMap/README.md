@@ -138,6 +138,10 @@ Collisions occur when two different keys hash to the same index. There are two w
 * **Resizing**: As elements are added, the map resizes, doubling the index count. This can be expensive when the map grows often.
 
 ---
+<p align="center">
+<img src="https://github.com/uv-goswami/Advanced_Algo/blob/2eae3be1981e16f03064e0ac00f1af44c32658cc/HashMap/hash_map.png" alt="Kruskal" height="575px"/>
+</p>
+---
 
 ## Typical Code Examples
 
