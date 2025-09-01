@@ -1,4 +1,4 @@
-
+![Kruskal](Kruskal's_Algorithm/Kruskal.png)
 # 📌 The Minimum Spanning Tree (MST)
 
 A **spanning tree** of a connected, undirected, and weighted graph is a subset of the graph that:
