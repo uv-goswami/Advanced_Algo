@@ -1,4 +1,3 @@
-![Kruskal](https://github.com/uv-goswami/Advanced_Algo/blob/715e831280f4d2946a5a2edc3c7e5c665dd64b02/Kruskal's_Algorithm/Kruskal.png)
 # 📌 The Minimum Spanning Tree (MST)
 
 A **spanning tree** of a connected, undirected, and weighted graph is a subset of the graph that:
@@ -29,6 +28,10 @@ Among all the possible spanning trees of a graph, the **Minimum Spanning Tree (M
 6. If yes, add the edge to the MST and union the sets.
 7. If not, skip the edge to avoid cycles.
 8. Repeat until MST contains V-1 edges.
+
+<p align="center">
+  <img src="https://github.com/uv-goswami/Advanced_Algo/blob/715e831280f4d2946a5a2edc3c7e5c665dd64b02/Kruskal's_Algorithm/Kruskal.png" alt="Kruskal" height="575px" width="500px"/>
+</p>
 
 ---
 
