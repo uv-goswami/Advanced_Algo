@@ -25,6 +25,10 @@ It gracefully handles negative edge weights and can detect negative-weight cycle
 
 ---
 
+<p align="center">
+  <img src="https://github.com/uv-goswami/Advanced_Algo/blob/3ef922ca39898e501ce633f184ad31f1d7581e42/Bellman-Ford/Bellman-Ford.png" alt="Bellman" height="600px" />
+</p>
+
 ## 🧾 Pseudocode
 
 ```plaintext
