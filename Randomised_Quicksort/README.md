@@ -29,6 +29,10 @@ Randomized Quick Sort is an in-place, divide-and-conquer sorting algorithm. It p
 
 ---
 
+<p align="center">
+  <img src="https://github.com/uv-goswami/Advanced_Algo/blob/03037dfa4d1c6105ca1b8846c9bf6e2ee03481ea/Randomised_Quicksort/Randomised_QuickSort.png" alt="QuickSort" height="400px"/>
+</p>
+
 ## 🧾 Pseudocode
 
 ```plaintext
