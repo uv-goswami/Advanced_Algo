@@ -4,7 +4,7 @@ This repository contains implementations of advanced algorithms in data structur
 
 ## Table of Contents
 
-* [HashMap](https://github.com/uv-goswami/Advanced_Algo/blob/f6cd2be148de6ae45377b17c832a47fb62a5a5a8/Randomised_Quicksort)
-* [HashMap](https://github.com/uv-goswami/Advanced_Algo/blob/f6cd2be148de6ae45377b17c832a47fb62a5a5a8/Randomized_Select)
+* [Randomised Quicksort](https://github.com/uv-goswami/Advanced_Algo/blob/f6cd2be148de6ae45377b17c832a47fb62a5a5a8/Randomised_Quicksort)
+* [Randomized Select](https://github.com/uv-goswami/Advanced_Algo/blob/f6cd2be148de6ae45377b17c832a47fb62a5a5a8/Randomized_Select)
 * [Kruskal's Algorithm](https://github.com/uv-goswami/Advanced_Algo/tree/f6cd2be148de6ae45377b17c832a47fb62a5a5a8/Kruskal's_Algorithm)
 * [HashMap](https://github.com/uv-goswami/Advanced_Algo/blob/f6cd2be148de6ae45377b17c832a47fb62a5a5a8/HashMap)
