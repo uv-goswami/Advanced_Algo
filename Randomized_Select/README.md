@@ -30,6 +30,8 @@ Randomized Select (Quickselect) finds the k-th smallest element in an unsorted a
 
 ---
 
+![Randomised_Select](https://github.com/uv-goswami/Advanced_Algo/blob/99cff40506130ec6428bf9e3e42b61b89fae41f8/Randomized_Select/Randomised_Select.png)
+
 ## 🧾 Pseudocode
 
 ```plaintext
