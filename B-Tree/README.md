@@ -40,7 +40,7 @@ Final tree:
            /    \
      [5 | 6 | 7]  [12 | 17 | 20 | 30]
 ```
-
+![B-Tree](https://github.com/uv-goswami/Advanced_Algo/blob/f4ab6a4be5cb8c25d80770e1f1a8f1c9b7d2923f/B-Tree/B-Tree.png)
 ---
 
 ## 🧾 Pseudocode
