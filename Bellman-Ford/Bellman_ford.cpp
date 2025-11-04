@@ -1,55 +1,60 @@
 #include <iostream>
+#include <limits.h>
 #include <vector>
-#include <limits>
-
 using namespace std;
 
 struct Edge {
-  int u, v, w;
+    int src, dest, weight;
 };
 
-vector<int> bellmanFord(int V, int source, const vector<Edge>& edges) {
-  const int INF = numeric_limits<int>::max();
-  vector<int> dist(V, INF);
-  dist[source] = 0;
-
-  for (int i = 1; i <= V - 1; ++i) {
-    for (auto& e : edges) {
-      if (dist[e.u] != INF && dist[e.u] + e.w < dist[e.v]) {
-        dist[e.v] = dist[e.u] + e.w;
-      }
+void bellmanFord(vector<Edge>& edges, int V, int source) {
+    int* dist = new int[V];
+    
+    for (int i = 0; i < V; i++)
+        dist[i] = INT_MAX;
+    dist[source] = 0;
+    
+    // Relax edges V-1 times
+    for (int i = 0; i < V - 1; i++) {
+        for (const Edge& e : edges) {
+            if (dist[e.src] != INT_MAX && 
+                dist[e.src] + e.weight < dist[e.dest]) {
+                dist[e.dest] = dist[e.src] + e.weight;
+            }
+        }
     }
-  }
-
-  for (auto& e : edges) {
-    if (dist[e.u] != INF && dist[e.u] + e.w < dist[e.v]) {
-      cout << "Graph contains a negative-weight cycle\n";
-      break;
+    
+    // Check for negative cycles
+    for (const Edge& e : edges) {
+        if (dist[e.src] != INT_MAX && 
+            dist[e.src] + e.weight < dist[e.dest]) {
+            cout << "Graph contains negative weight cycle\n";
+            delete[] dist;
+            return;
+        }
     }
-  }
-
-  return dist;
+    
+    cout << "Vertex\tDistance from Source " << source << endl;
+    for (int i = 0; i < V; i++)
+        cout << i << "\t" << (dist[i] == INT_MAX ? "INF" : to_string(dist[i])) << endl;
+    
+    delete[] dist;
 }
 
 int main() {
-  int V = 5;
-  vector<Edge> edges = {
-    {0, 1, 6}, {0, 2, 7}, {1, 2, 8},
-    {1, 3, 5}, {1, 4, -4}, {2, 3, -3},
-    {2, 4, 9}, {3, 1, -2}, {4, 3, 7}
-  };
-
-  int source = 0;
-  auto dist = bellmanFord(V, source, edges);
-
-  cout << "Vertex   Distance from Source\n";
-  for (int i = 0; i < V; ++i) {
-    if (dist[i] == numeric_limits<int>::max()) {
-      cout << i << "        INF\n";
-    } else {
-      cout << i << "        " << dist[i] << "\n";
-    }
-  }
-
-  return 0;
+    int V, E, source;
+    cout << "Enter vertices and edges: ";
+    cin >> V >> E;
+    
+    vector<Edge> edges(E);
+    cout << "Enter edges (src dest weight):\n";
+    for (int i = 0; i < E; i++)
+        cin >> edges[i].src >> edges[i].dest >> edges[i].weight;
+    
+    cout << "Enter source vertex: ";
+    cin >> source;
+    
+    bellmanFord(edges, V, source);
+    
+    return 0;
 }
