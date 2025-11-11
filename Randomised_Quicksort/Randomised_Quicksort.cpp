@@ -1,51 +1,63 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <cstdlib> // For rand() and srand()
+#include <ctime>   // For time()
+
 using namespace std;
 
-struct QuickSortReport {
-    long long comparisons = 0; // number of element-to-pivot comparisons
-};
+// Function to swap two elements
+void swap(int &a, int &b) {
+    int temp = a;
+    a = b;
+    b = temp;
+}
 
-int partition_lomuto(vector<int>& a, int lo, int hi, mt19937& rng, QuickSortReport& rep) {
-    // choose random pivot in [lo, hi] and move it to end
-    uniform_int_distribution<int> dist(lo, hi);
-    int p = dist(rng);
-    swap(a[p], a[hi]);
-    int pivot = a[hi];
+// Partition function using a random pivot
+int randomizedPartition(int arr[], int low, int high) {
+    // Pick a random pivot index between low and high
+    int randomIndex = low + rand() % (high - low + 1);
+    swap(arr[randomIndex], arr[high]); // Move pivot to end
 
-    int i = lo - 1;
-    for (int j = lo; j < hi; ++j) {
-        rep.comparisons += 1;               // count A[j] <= pivot
-        if (a[j] <= pivot) {
-            ++i;
-            if (i != j) swap(a[i], a[j]);
+    int pivot = arr[high];
+    int i = low - 1;
+
+    for (int j = low; j < high; j++) {
+        if (arr[j] < pivot) {
+            i++;
+            swap(arr[i], arr[j]);
         }
     }
-    swap(a[i + 1], a[hi]);
+
+    swap(arr[i + 1], arr[high]); // Place pivot in correct position
     return i + 1;
 }
 
-void randomized_quicksort(vector<int>& a, int lo, int hi, mt19937& rng, QuickSortReport& rep) {
-    if (lo >= hi) return;
-    int mid = partition_lomuto(a, lo, hi, rng, rep);
-    randomized_quicksort(a, lo, mid - 1, rng, rep);
-    randomized_quicksort(a, mid + 1, hi, rng, rep);
+// Randomized Quicksort function
+void randomizedQuickSort(int arr[], int low, int high) {
+    if (low < high) {
+        int pi = randomizedPartition(arr, low, high);
+        randomizedQuickSort(arr, low, pi - 1);
+        randomizedQuickSort(arr, pi + 1, high);
+    }
 }
 
-QuickSortReport randomized_quicksort(vector<int>& a) {
-    QuickSortReport rep;
-    random_device rd;
-    mt19937 rng(rd());
-    if (!a.empty())
-        randomized_quicksort(a, 0, (int)a.size() - 1, rng, rep);
-    return rep;
-}
-
+// Main function to test the algorithm
 int main() {
-    vector<int> a = {9, 3, 7, 1, 8, 2, 5, 4, 6, 0};
-    auto report = randomized_quicksort(a);
+    srand(time(0)); // Seed for random number generator
 
-    cout << "Sorted: ";
-    for (int x : a) cout << x << " ";
-    cout << "\nComparisons: " << report.comparisons << "\n";
+    int arr[] = {10, 7, 8, 9, 1, 5};
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    cout << "Original array: ";
+    for (int i = 0; i < n; i++)
+        cout << arr[i] << " ";
+    cout << endl;
+
+    randomizedQuickSort(arr, 0, n - 1);
+
+    cout << "Sorted array:   ";
+    for (int i = 0; i < n; i++)
+        cout << arr[i] << " ";
+    cout << endl;
+
     return 0;
 }
